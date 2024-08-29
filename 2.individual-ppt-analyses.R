@@ -5,7 +5,7 @@ plot_ppts <- function(ppts_to_display,
                       n_col=2,
                       n_row=2,
                       n_trials=333){
-  gg_df <- r_df[r_df$PptId %in% ppts_to_display,c("PptId","Condition","AdjSize","TrueBernoulliParam","bernoulliEstimate","BlockNum","TrialNum")]
+  gg_df <- full_df[full_df$PptId %in% ppts_to_display,c("PptId","Condition","AdjSize","TrueBernoulliParam","bernoulliEstimate","BlockNum","TrialNum")]
   #1. set-up adjsign for the colouring of the participant response line (green, red, or neutral)
   gg_df$AdjSign <- NA
   gg_df$AdjSign <- shifter(sign(gg_df$AdjSize),1)
@@ -62,7 +62,7 @@ plot_all_ppts <- function(ppts_to_display, ppt_labels,
                           n_col=2,
                           n_row=4,
                           n_trials=333){
-  gg_df <- r_df[r_df$PptId %in% ppts_to_display,c("PptId","Condition","AdjSize","TrueBernoulliParam","bernoulliEstimate","BlockNum","TrialNum")]
+  gg_df <- full_df[full_df$PptId %in% ppts_to_display,c("PptId","Condition","AdjSize","TrueBernoulliParam","bernoulliEstimate","BlockNum","TrialNum")]
   #1. set-up adjsign for the colouring of the participant response line (green, red, or neutral)
   gg_df$AdjSign <- NA
   gg_df$AdjSign <- shifter(sign(gg_df$AdjSize),1)
@@ -107,8 +107,8 @@ plot_all_ppts <- function(ppts_to_display, ppt_labels,
   }
 }
 
-r_df$RespMain <- r_df$AdjSize==0
-a_df <- aggregate_rf(r_df,"RespMain",c("PptId","Condition"),function(x){sum(x,na.rm=T)})
+full_df$RespMain <- full_df$AdjSize==0
+a_df <- aggregate_rf(full_df,"RespMain",c("PptId","Condition"),function(x){sum(x,na.rm=T)})
 a_df <- a_df[order(a_df$RespMain),]
 ids <- a_df$PptId
 plot_ids <- ids[ids %in% ppt_ids]

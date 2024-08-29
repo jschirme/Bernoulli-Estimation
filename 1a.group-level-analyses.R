@@ -22,14 +22,12 @@ p <- ggplot(adf,aes(x=Condition,y=x,fill=Condition,color=Condition)) +
                outlier.size=2, notch=FALSE,alpha=0.5)+
   geom_point()+
   ylab("Number of Adjustments")
-p <- gg_bernEst(p,scales = c(x="discrete",y="continuous"),margin = c(x=.25,y=0))
+p <- make_APA(p, scales = c(x="discrete",y="continuous"),margin = c(x=.25,y=0))
 
 t_test <- t.test(adf$x[adf$Condition=="Manual"],adf$x[adf$Condition=="Automatic"],var.equal = T)
 t_test <- APA_format_vals(t_test)
 
-#------------------------------------------------------------#
-#   HOW/WHERE DO MANUAL PARTICIPANTS MAKE MORE ADJUSTMENTS   #
-#------------------------------------------------------------#
+# HOW/WHERE DO MANUAL PARTICIPANTS MAKE MORE ADJUSTMENTS   #
 
 # 2. NOISE hypothesis: Higher proportion negative adjustments
 num_adj_by_sign <- function(pptid){

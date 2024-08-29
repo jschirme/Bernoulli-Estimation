@@ -1,0 +1,375 @@
+\begin{thebibliography}{}
+\renewcommand{\doi}[1]{\url{https://doi.org/#1}}
+\bibcommenthead
+
+\bibitem [\protect \citeauthoryear {%
+Abbott%
+\ \protect \BOthers {.}}{%
+Abbott%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+bib13}
+\APACinsertmetastar {%
+bib13}%
+\begin{APACrefauthors}%
+Abbott, T.M.C.%
+\BCBT {}\ \BOthersPeriod {.}
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Dark Energy Survey Year 1 Results: Constraints on
+  Extended Cosmological Models from Galaxy Clustering and Weak Lensing}} {{Dark
+  Energy Survey Year 1 Results: Constraints on Extended Cosmological Models
+  from Galaxy Clustering and Weak Lensing}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Phys. Rev. D}{99}{12}{123505,}
+\newblock
+\begin{APACrefDOI} \doi{10.1103/PhysRevD.99.123505} \end{APACrefDOI}
+\newblock
+{\href{https://arxiv.org/abs/1810.02499}{{arXiv:1810.02499}}}
+\newblock
+ {[astro-ph.CO]}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Babichev%
+, Ries%
+\BCBL {}\ \BBA {} Lvovsky%
+}{%
+Babichev%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+bib10}
+\APACinsertmetastar {%
+bib10}%
+\begin{APACrefauthors}%
+Babichev, S.A.%
+, Ries, J.%
+\BCBL {} Lvovsky, A.I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+\APACrefbtitle {Quantum scissors: teleportation of single-mode optical states
+  by means of a nonlocal single photon.} {Quantum scissors: teleportation of
+  single-mode optical states by means of a nonlocal single photon.}
+\newblock
+\APACrefnote{Preprint at \url{https://arxiv.org/abs/quant-ph/0208066v1}}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Beneke%
+, Buchalla%
+\BCBL {}\ \BBA {} Dunietz%
+}{%
+Beneke%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1997}}%
+}]{%
+bib11}
+\APACinsertmetastar {%
+bib11}%
+\begin{APACrefauthors}%
+Beneke, M.%
+, Buchalla, G.%
+\BCBL {} Dunietz, I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Mixing induced {CP} asymmetries in inclusive {B} decays}
+  {Mixing induced {CP} asymmetries in inclusive {B} decays}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Phys. {L}ett.}{B393}{}{132-142,}
+\newblock
+{\href{https://arxiv.org/abs/0707.3168}{{arXiv:0707.3168}}}
+\newblock
+ {[gr-gc]}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Broy%
+}{%
+Broy%
+}{%
+{\protect \APACyear {1992}}%
+}]{%
+bib5}
+\APACinsertmetastar {%
+bib5}%
+\begin{APACrefauthors}%
+Broy, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1992}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Software engineering---from auxiliary to key
+  technologies} {Software engineering---from auxiliary to key
+  technologies}.{\BBCQ}
+\newblock
+ M.~Broy\ \BBA {} E.~Denert\ (\BEDS), \APACrefbtitle {Software Pioneers}
+  {Software pioneers}\ (\BPGS\ 10--13).
+\newblock
+\APACaddressPublisher{New {Y}ork}{Springer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Campbell%
+\ \BBA {} Gear%
+}{%
+Campbell%
+\ \BBA {} Gear%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+bib1}
+\APACinsertmetastar {%
+bib1}%
+\begin{APACrefauthors}%
+Campbell, S.L.%
+\BCBT {}\ \BBA {} Gear, C.W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The index of general nonlinear {D}{A}{E}{S}} {The index
+  of general nonlinear {D}{A}{E}{S}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Numer. {M}ath.}{72}{2}{173--196,}
+\newblock
+
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chung%
+\ \BBA {} Morris%
+}{%
+Chung%
+\ \BBA {} Morris%
+}{%
+{\protect \APACyear {1978}}%
+}]{%
+bib8}
+\APACinsertmetastar {%
+bib8}%
+\begin{APACrefauthors}%
+Chung, S.T.%
+\BCBT {}\ \BBA {} Morris, R.L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1978}{}{}.
+\newblock
+\APACrefbtitle {Isolation and characterization of plasmid deoxyribonucleic acid
+  from Streptomyces fradiae.} {Isolation and characterization of plasmid
+  deoxyribonucleic acid from streptomyces fradiae.}
+\newblock
+\APACrefnote{Paper presented at the 3rd international symposium on the genetics
+  of industrial microorganisms, University of {W}isconsin, {M}adison, 4--9 June
+  1978}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Geddes%
+, Czapor%
+\BCBL {}\ \BBA {} Labahn%
+}{%
+Geddes%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1992}}%
+}]{%
+bib4}
+\APACinsertmetastar {%
+bib4}%
+\begin{APACrefauthors}%
+Geddes, K.O.%
+, Czapor, S.R.%
+\BCBL {} Labahn, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1992}.
+\newblock
+\APACrefbtitle {Algorithms for {C}omputer {A}lgebra} {Algorithms for {C}omputer
+  {A}lgebra}.
+\newblock
+\APACaddressPublisher{Boston}{Kluwer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hamburger%
+}{%
+Hamburger%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+bib3}
+\APACinsertmetastar {%
+bib3}%
+\begin{APACrefauthors}%
+Hamburger, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Quasimonotonicity, regularity and duality for nonlinear
+  systems of partial differential equations} {Quasimonotonicity, regularity and
+  duality for nonlinear systems of partial differential equations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Ann. Mat. Pura. Appl.}{169}{2}{321--354,}
+\newblock
+
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hao%
+, AghaKouchak%
+, Nakhjiri%
+\BCBL {}\ \BBA {} Farahmand%
+}{%
+Hao%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+bib9}
+\APACinsertmetastar {%
+bib9}%
+\begin{APACrefauthors}%
+Hao, Z.%
+, AghaKouchak, A.%
+, Nakhjiri, N.%
+\BCBL {} Farahmand, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+\APACrefbtitle {Global integrated drought monitoring and prediction system
+  (GIDMaPS) data sets.} {Global integrated drought monitoring and prediction
+  system (gidmaps) data sets.}
+\newblock
+\APACrefnote{figshare \url{https://doi.org/10.6084/m9.figshare.853801}}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Seymour%
+}{%
+Seymour%
+}{%
+{\protect \APACyear {1981}}%
+}]{%
+bib6}
+\APACinsertmetastar {%
+bib6}%
+\begin{APACrefauthors}%
+Seymour, R.S.%
+\end{APACrefauthors}%
+\ (\BED).
+\unskip\
+\newblock
+\APACrefYear{1981}.
+\newblock
+\APACrefbtitle {Conductive {P}olymers} {Conductive {P}olymers}.
+\newblock
+\APACaddressPublisher{New {Y}ork}{Plenum}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Slifka%
+\ \BBA {} Whitton%
+}{%
+Slifka%
+\ \BBA {} Whitton%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+bib2}
+\APACinsertmetastar {%
+bib2}%
+\begin{APACrefauthors}%
+Slifka, M.K.%
+\BCBT {}\ \BBA {} Whitton, J.L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Clinical implications of dysregulated cytokine
+  production} {Clinical implications of dysregulated cytokine
+  production}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. {M}ol. {M}ed.}{78}{}{74--80,}
+\newblock
+\begin{APACrefDOI} \doi{10.1007/s001090000086} \end{APACrefDOI}
+\newblock
+
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Smith%
+}{%
+Smith%
+}{%
+{\protect \APACyear {1976}}%
+}]{%
+bib7}
+\APACinsertmetastar {%
+bib7}%
+\begin{APACrefauthors}%
+Smith, S.E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1976}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Neuromuscular blocking drugs in man} {Neuromuscular
+  blocking drugs in man}.{\BBCQ}
+\newblock
+ E.~Zaimis\ (\BED), \APACrefbtitle {Neuromuscular junction. {H}andbook of
+  experimental pharmacology} {Neuromuscular junction. {H}andbook of
+  experimental pharmacology}\ (\BVOL~42, \BPGS\ 593--660).
+\newblock
+\APACaddressPublisher{Heidelberg}{Springer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Stahl%
+}{%
+Stahl%
+}{%
+{\protect \APACyear {2020}}%
+}]{%
+bib12}
+\APACinsertmetastar {%
+bib12}%
+\begin{APACrefauthors}%
+Stahl, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2020}{}{}.
+\newblock
+\APACrefbtitle {deep{SIP}: deep learning of {S}upernova {I}a {P}arameters.}
+  {deep{SIP}: deep learning of {S}upernova {I}a {P}arameters.} 0.42.
+\newblock
+\APAChowpublished {Astrophysics {S}ource {C}ode {L}ibrary}.
+\newblock
+{\href{https://ascl.net/2006.023}{{ascl:2006.023}}}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
