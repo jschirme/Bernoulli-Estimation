@@ -1,10 +1,16 @@
 # INTRODUCTION
-These are the data and anaysis files used in my master's thesis (https://uwspace.uwaterloo.ca/items/28dffc4a-4a74-4772-92a0-9e0a5fd059e0), and for a manuscript submitted to PBR.
 
-The raw manuscript (PBR_manuscript.Rnw) is provided as an Rnw or Sweave file that can be recompiled into a LaTeX file or a pdf file.
-This raw manuscript contains the main text for the manuscript as well as embedded codeblocks for all the computed analyses in R.
-Supplementary material (such as plots) is provided in the Folder 'Supplementary'
-The main analyses in R are below and numbered (1a, 1b and 2). they are arranged in order of presentation in the manuscript. They rely on additional code provided in the subdirectory 'supporting'.
+These are the data and anaysis files used in my master's thesis (https://uwspace.uwaterloo.ca/items/28dffc4a-4a74-4772-92a0-9e0a5fd059e0), and for a manuscript submitted to Psychonomic Bulletin and Review (PBR).
+
+## NOTE TO REVIEWERS:
+- this is the draft of the repository as we have it, the organization may be subject to some change but the content will remain.
+
+## ORGANIZATION
+- The raw manuscript (PBR_manuscript.Rnw) is provided as an Rnw or Sweave file that can be recompiled into a LaTeX file or a pdf file.
+  - This raw manuscript contains the main text for the manuscript as well as embedded codeblocks for all the computed analyses in R.
+- Supplementary material (such as plots) is provided in the Folder 'Supplementary'
+- The main analyses in R are below and numbered (1a, 1b and 2).
+  - They are arranged in order of presentation in the manuscript. They rely on additional code provided in the subdirectory 'supporting'.
 
 
 # ANALYSES
