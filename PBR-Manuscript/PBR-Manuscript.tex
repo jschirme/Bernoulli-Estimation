@@ -1,4 +1,54 @@
-\documentclass[sn-apa]{sn-jnl}
+\documentclass[sn-apa]{sn-jnl}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
 \usepackage[]{xcolor}
 % maxwidth is the original width if it is less than linewidth
 % otherwise use linewidth (to make sure the graphics do not exceed the margin)
@@ -45,7 +95,7 @@
 \setlength{\floatsep}{5pt plus 2pt minus 2pt}
 \setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
 \setlength{\intextsep}{5pt plus 2pt minus 2pt}
-
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
 \title[Article Title]{Step-wise updating of probabilities is neither universal nor fully explained by motor costs}
@@ -89,64 +139,26 @@ As they identify the motor-cost confound, \cite{forsgren2023further} distinguish
 To determine whether this stepwise behavior could be explained by the additional effort it takes to update a response we contrasted an \underline{Automatic} condition that mimicked previous versions of this task to a \underline{Manual} condition that obliged participants to report a new estimate on every trial. This did prompt participants to update more often. However, some participants in the Manual condition still exhibited a step-wise pattern in their probability estimates despite having to update their response on every trial. We conclude that intentional behavior ranges quite broadly and resists easy categorization. Participants can meticulously update either extremely frequently or extremely infrequently. Future models will need to blend both accounts to accommodate both extreme ends of updating frequency \citep{forsgren2023further}. Importantly, motor costs are not sufficient to explain all behavioral observations of intermittent updating.
 
 
-<<cache=FALSE, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>= 
-  library(stringr)
-  library(ggplot2)
-  library(ggthemes)
-  library(ggforce)
-  curlocation <- getwd()
-  bernest_location <- str_split(curlocation,"bernEst")[[1]][1]
-  analysis_path <- paste0(bernest_location,"/bernEst/")
-  support_path <- paste0(analysis_path,"supporting/")
-  analysis_filename <- paste0(support_path,"bernEst_startup.R")
-  
-  individual_nls_fits <- readRDS(file = paste0(support_path,"/ind_ppt_gauss_series.rds"))
-  group_nls_fits <- readRDS(file = paste0(support_path,"/group_gauss_series.rds"))
-@
 
-<<cache=TRUE, external-code, echo=FALSE, results='hide', message=FALSE, warning=FALSE, out.width = '0.9\\textwidth',>>=
-  setwd(support_path)
-  source(analysis_filename)
-@
+
+
 
 
 \section{Methods}\label{sec-meth}
 
-<<cache=FALSE, out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
-  #ppt_ids <- unique(task_df$PptId)
-  
-  dem_df <- unique(task_df[,c("PptId","Gender","Age")])
-  
-  num_ppts <- length(ppt_ids)
-  num_men <- sum(dem_df$Gender=="Male",na.rm = T)
-  num_women <- sum(dem_df$Gender=="Female",na.rm = T)
-  num_other <- num_ppts - num_men - num_women
-  
-  mean_age <- mean(as.numeric(dem_df$Age),na.rm=T)
-  sd_age <- sd(as.numeric(dem_df$Age),na.rm=T)
 
-@
 
 The experiment was conducted online. Its interactive elements were coded in Javascript and PHP using the JsPsych framework \cite{de2015jspsych}. Analyses were conducted in R \cite{rcore2022}. Participants followed a link to a consent form, followed by demographics questions, instructions, practice trials and then they completed the task. The experimental procedure was cleared by the University's Office of Research Ethics (ORE 42844).
 
-Participants were students at the University of Waterloo; they were compensated with research participation credit. \Sexpr{length(unique(full_df$PptId))} participants finished the task. Of these, \Sexpr{num_ppts} (\Sexpr{num_men} men, \Sexpr{num_women} women, \Sexpr{num_other} other) met inclusion criteria (Mean age = \Sexpr{round(mean_age,2)}, SD =  \Sexpr{round(sd_age,2)}). 
+Participants were students at the University of Waterloo; they were compensated with research participation credit. 173 participants finished the task. Of these, 89 (32 men, 53 women, 4 other) met inclusion criteria (Mean age = 20.55, SD =  1.94). 
 
 Participants were excluded based on accuracy on the task and time taken to complete the task. Because previous research has shown that people are capable of performing this task, it was assumed that participants who performed at chance had failed to comply with the instructions. Exclusions were designed to remove the clearest cases of non-compliance and were intended to be lenient. To be included in the analyses, a participant's estimates of the Bernoulli parameter needed to significantly predict the actual Bernoulli parameter for the full experiment (i.e. across all three blocks). For a single block, this requires a correlation coefficient of .108. The correlation-coefficient was used to measure accuracy in each of three blocks. 
 
-<<cache=FALSE, out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
-get_time_on_task <- function(pptid){
-    starttime <- full_df$TimeElapsed[full_df$PptId==pptid & full_df$TrialNum==1]
-    stoptime <- full_df$TimeElapsed[full_df$PptId==pptid & full_df$TrialNum==999]
-    time_in_ms <- stoptime-starttime
-    time_in_min <- ms_in_min(time_in_ms)
-    return(time_in_min)
-}
-  task_lengths <- sapply(unique(full_df$PptId),get_time_on_task)
-@
 
-Time taken to complete the task ranged from \Sexpr{round(min(task_lengths),2)} minutes to \Sexpr{round(max(task_lengths)/60,2)} hours, with a mean of \Sexpr{round(mean(task_lengths),2)} and an IQR of \Sexpr{round(IQR(task_lengths),2)}. Participants were excluded using the IQR method to detect outliers (exclusion threshold at 1.5 x (IQR) above the third quartile). This produced a cut-off of \Sexpr{round(quantile(task_lengths)['75%'] + 1.5*IQR(task_lengths),2)} minutes. Eight participants took longer than this cut-off and were excluded. These participants were assumed to have been distracted from the task if they had taken so long to complete it. For participants completing the task quickly, they were included or excluded based on the accuracy measure alone. 
 
-The median accuracy per block (as measured by the correlation coefficient) for the remaining included participants was \Sexpr{round(median(unique(task_df$AccCorr)),2)}, with an IQR of \Sexpr{round(IQR(unique(task_df$AccCorr)),2)}, a minimum score of \Sexpr{round(min(unique(task_df$AccCorr)),2)}, and a maximum of \Sexpr{round(max(unique(task_df$AccCorr)),2)}. 
+Time taken to complete the task ranged from 3.25 minutes to 22.58 hours, with a mean of 49.76 and an IQR of 29.47. Participants were excluded using the IQR method to detect outliers (exclusion threshold at 1.5 x (IQR) above the third quartile). This produced a cut-off of 91.71 minutes. Eight participants took longer than this cut-off and were excluded. These participants were assumed to have been distracted from the task if they had taken so long to complete it. For participants completing the task quickly, they were included or excluded based on the accuracy measure alone. 
+
+The median accuracy per block (as measured by the correlation coefficient) for the remaining included participants was 0.65, with an IQR of 0.23, a minimum score of 0.21, and a maximum of 0.87. 
 
 The task was a Bernoulli estimation task (Figure \ref{fig:taskdisplay}). For each trial in this task, participants observed a dot float out of an urn. The dot was either red or blue. Number of trials per Bernoulli parameter was randomly sampled from a uniform distribution ranging from 1-200 trials. For each dot, participants were instructed to use the slider below the urn to estimate the Bernoulli parameter. There were 101 possible settings on the slider. Participants clicked and pulled the slider bar to adjust it. When they were satisfied with their estimate, they clicked a 'Next' button to continue. Participants were given 999 trials and two breaks.
 
@@ -157,34 +169,17 @@ The task was a Bernoulli estimation task (Figure \ref{fig:taskdisplay}). For eac
     \label{fig:taskdisplay}
 \end{figure}
 
-<<cache=FALSE, out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
-  pract_df <-  pract_df[pract_df$PptId %in% ppt_ids,]
-  pract_err_df <- aggregate_rf(pract_df,"error",c("PptId"),function(x){sum(x!=0)})
-  pract_err_mean_size <- mean(abs(pract_df$error[pract_df$error!=0]))
-@
 
-Participants also completed 30 practice trials. Instead of estimating the actual Bernoulli parameter, participants aligned their estimates with a grey line generated randomly. This was to measure their tolerance for imprecision. Errors recorded on practice trials were taken as evidence that some participants did tolerate error from precise slider alignment (and so there may be noise in Manual participant responses).  Of these \Sexpr{length(pract_err_df$error)} participants, \Sexpr{sum(pract_err_df$error!=0)} tolerated some error on practice trials. Median number errors was \Sexpr{median(pract_err_df$error)}, and mean error size was \Sexpr{round(pract_err_mean_size*10,1)}\%.
 
-<<cache=FALSE, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>=
-  knitr::read_chunk(paste0(support_path,"ppt_exclusions.R"))
-@
+Participants also completed 30 practice trials. Instead of estimating the actual Bernoulli parameter, participants aligned their estimates with a grey line generated randomly. This was to measure their tolerance for imprecision. Errors recorded on practice trials were taken as evidence that some participants did tolerate error from precise slider alignment (and so there may be noise in Manual participant responses).  Of these 89 participants, 61 tolerated some error on practice trials. Median number errors was 2, and mean error size was 1.5\%.
 
-<<ppt-exclusions, cache=FALSE, echo=FALSE, warning = FALSE, out.width = '0.9\\textwidth'>>=
-@
 
-<<cache=FALSE, out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
-    ids <- unique(task_df$PptId)
-    is_manual <- cond_dict[ids]=="Manual"
-    manual_ids <- ids[is_manual]
-    automatic_ids <-  ids[!(is_manual)]
-    
-    a_df <- aggregate_rf(task_df,"rt",c("Condition","PptId"),mean)
-    manual_rt <- a_df$rt[a_df$Condition=="Manual"]
-    automatic_rt <- a_df$rt[a_df$Condition=="Automatic"]
-    ttest_rt <- APA_format_vals(t.test(manual_rt,automatic_rt))
-@
 
-Participants were randomly assigned into two conditions (\Sexpr{length(manual_ids)} Manual, \Sexpr{length(automatic_ids)} Automatic). The Automatic condition was designed to mimic previous research. Automatic condition participants were given their last response as their default response. In contrast, in the Manual condition, participants were given no default response. On each trial, the slider began grey and was without an initial position. The previous estimate was shown with a grey line (as in the practice trials). To maintain their response from the previous trial, participants needed to align a red/blue border they introduce with the prior response indicator. Participants could either click and drag the slider, or click anywhere on the slider and the response bar would snap to that position. If participants failed to adjust the slider before attempting to move to the next trial, red text would prompt them to do so. A quick manipulation check determined that Manual participant average reaction time (M = \Sexpr{round(mean(manual_rt),2)}, SD = \Sexpr{round(sd(manual_rt),2)}) was longer than that of Automatic participants (M = \Sexpr{round(mean(automatic_rt),2)}, SD = \Sexpr{round(sd(automatic_rt),2)}; \textit{t}(\Sexpr{ttest_rt[["df"]]}) = \Sexpr{ttest_rt[["f"]]}, p \(<\) 0.001). 
+
+
+
+
+Participants were randomly assigned into two conditions (37 Manual, 52 Automatic). The Automatic condition was designed to mimic previous research. Automatic condition participants were given their last response as their default response. In contrast, in the Manual condition, participants were given no default response. On each trial, the slider began grey and was without an initial position. The previous estimate was shown with a grey line (as in the practice trials). To maintain their response from the previous trial, participants needed to align a red/blue border they introduce with the prior response indicator. Participants could either click and drag the slider, or click anywhere on the slider and the response bar would snap to that position. If participants failed to adjust the slider before attempting to move to the next trial, red text would prompt them to do so. A quick manipulation check determined that Manual participant average reaction time (M = 2365.7, SD = 735.94) was longer than that of Automatic participants (M = 1432.96, SD = 888.27; \textit{t}(84.91) = 5.4, p \(<\) 0.001). 
 
 The dependent variable of interest for these analyses was number of adjustments. An adjustment was any change in estimate of the Bernoulli parameter from one trial to the next. Adjustment size was measured in slider increments. Response maintenance was an adjustment of size zero, and was not considered an adjustment in the following analyses. Adjustments were also re-coded. For the following analyses, positive adjustments are "sample-consistent" and negative adjustments are "sample-inconsistent". For positive adjustments, new Bernoulli estimates have changed to increase the probability of the latest dot colour.
 
@@ -192,44 +187,33 @@ The dependent variable of interest for these analyses was number of adjustments.
 
 Our results show that both conditions exhibited large heterogeneity in updating frequency. In the Manual condition, the removing of the default response disposed participants to update more frequently, but also introduced noise. Importantly, in a subset of participants, this manipulation did not eliminate step-wise updating completely. Participants can exhibit step-wise response patterns even when they are forced to make a manual report on every trial. On the other hand, participants given a default response may exhibit near-constant updating. This demonstrates substantial individual differences in intentional updating frequency.
 
-<<cache=FALSE, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>=
-  knitr::read_chunk(paste0(analysis_path,"1a.group-level-analyses.R"))
-@
-
-<<numadj-groupcompare, cache=FALSE, echo=FALSE, warning = FALSE>>=
-@ 
 
 
-<<cache=FALSE, out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
-  a_df <- adj_df[adj_df$AdjSize!=0,]
 
-  adf <- aggregate(a_df$NumAdjs,by=list(Condition=a_df$Condition,PptId=a_df$PptId),sum)
 
-@
+
+
 
 \subsection{Requiring trial by trial responses does lead to more frequent updating}
 
-The Manual condition (M = \Sexpr{round(mean(adf$x[adf$Condition=="Manual"]),2)}, SD = \Sexpr{round(sd(adf$x[adf$Condition=="Manual"]),2)}) did update on more trials than the Automatic condition (M = \Sexpr{round(mean(adf$x[adf$Condition=="Automatic"]),2)}, SD = \Sexpr{round(sd(adf$x[adf$Condition=="Automatic"]),2)}; Figure \ref{fig:gross-diff}). An independent samples t-test confirmed a significant difference in the number of non-zero adjustments (\textit{t}(\Sexpr{t_test[["df"]]}) = \Sexpr{t_test[["f"]]}, p \(<\) 0.001). However, rather than these extra adjustments necessarily reflecting true changes to their estimates of the Bernoulli parameter, they may simply reflect noise; participants may have been imprecise in where they placed their mouse click on the previous-response line when they intended to maintain a response.
+The Manual condition (M = 708.24, SD = 205.41) did update on more trials than the Automatic condition (M = 307.71, SD = 265.63; Figure \ref{fig:gross-diff}). An independent samples t-test confirmed a significant difference in the number of non-zero adjustments (\textit{t}(87) = 7.68, p \(<\) 0.001). However, rather than these extra adjustments necessarily reflecting true changes to their estimates of the Bernoulli parameter, they may simply reflect noise; participants may have been imprecise in where they placed their mouse click on the previous-response line when they intended to maintain a response.
 
 \begin{figure}[htp]
 \centering
-<<out.width = '0.5\\textwidth', echo=FALSE, warning = FALSE>>= %out.extra='keepaspectratio',
-    p <- p + theme(aspect.ratio = 1, legend.position="none",text = element_text(size = 20))
-    p
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=0.5\textwidth]{figure/unnamed-chunk-9-1} 
+\end{knitrout}
 \caption{Boxplot showing group differences in total number of adjustments. Manual condition participants did make more adjustments, but these were disproportionately evidence consistent suggesting they were not simply due to noise and imprecise estimates.}
 \label{fig:gross-diff}
 \end{figure}
 
-<<cache=FALSE, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>=
-  knitr::read_chunk(paste0(analysis_path,"1b.fitting-models.R"))
-@
-
-<<gaussian-series, cache=FALSE, echo=FALSE, warning = FALSE>>=
-@ 
 
 
-To determine whether additional adjustments made by the Manual condition were noise or true new updating events, we started with a set of simple t-tests. Consistent with there being added noise, participants in the Manual condition made a higher proportion of sample-inconsistent adjustments (M = \Sexpr{round(mean(portion_neg(manual_ids)),2)}, SD = \Sexpr{round(sd(portion_neg(manual_ids)),2)}) (relative to sample-consistent adjustments) compared to the Automatic condition (M = \Sexpr{round(mean(portion_neg(automatic_ids)),2)}, SD = \Sexpr{round(sd(portion_neg(automatic_ids)),2)}), \textit{t}(\Sexpr{ttest_prop[["df"]]}) = \Sexpr{ttest_prop[["f"]]}, p = \Sexpr{ttest_prop[["p"]]}. However, these additional adjustments could not have been solely a reflection of added noise. The adjustments Manual participants made (after subtracting out average number automatic adjustments) were more often sample-consistent (M = \Sexpr{round(mean(pos_bias_x2),2)}, SD = \Sexpr{round(sd(pos_bias_x2),2)}) than sample-inconsistent(M = \Sexpr{round(mean(pos_bias_x1),2)}, SD = \Sexpr{round(sd(pos_bias_x1),2)}), \textit{t}(\Sexpr{ttest_pos_bias[["df"]]}) = \Sexpr{ttest_pos_bias[["f"]]}, p = \Sexpr{ttest_pos_bias[["p"]]}.
+
+
+
+To determine whether additional adjustments made by the Manual condition were noise or true new updating events, we started with a set of simple t-tests. Consistent with there being added noise, participants in the Manual condition made a higher proportion of sample-inconsistent adjustments (M = 0.37, SD = 0.25) (relative to sample-consistent adjustments) compared to the Automatic condition (M = 0.23, SD = 0.37), \textit{t}(86.89) = 2.08, p = 0.041. However, these additional adjustments could not have been solely a reflection of added noise. The adjustments Manual participants made (after subtracting out average number automatic adjustments) were more often sample-consistent (M = 260.98, SD = 198.72) than sample-inconsistent(M = 139.56, SD = 101.95), \textit{t}(53.72) = -3.31, p = 0.002.
 
 The differences detected above establish that the Manual condition distributed their responses more about zero (made noisier estimates) but also made more small adjustments consistent with the evidence (added updating events). This change in updating behavior is explored below by comparing the fit of different mixture models (Figure \ref{fig:numadj}). Automatic participant adjustment distributions were modeled first and then these models were compared to those of the Manual condition. 
 
@@ -241,7 +225,7 @@ Automatic participants were modeled using the equation below. P(x) is the probab
 
 Model fitting was done using the nls function from the base R stats package, using the "port" algorithm. The 998 adjustments per each trial were converted to histograms for the model fitting. Each data point was the number of adjustments made per adjustment size.
 
-Model comparison began with a simple check. Every Automatic participant was first fit to a single Gaussian distribution (two free parameters) and this fit was compared to that of the two Gaussian mixture model discussed above (five free parameters). For this second two-Gaussian model, the mean of one Gaussian was fixed at zero to represent response maintenance, and the mean of the other Gaussian was free to vary. For both Gaussians, the standard deviation and mixture coefficients were fit as free parameters. Model fit robustly improved. Out of the \Sexpr{length(AIC_diff_auto12)} participants, \Sexpr{sum(AIC_diff_auto12>0)} showed AIC decreases (M = \Sexpr{round(mean(AIC_diff_auto12),2)}, SD = \Sexpr{round(sd(AIC_diff_auto12),2)}).
+Model comparison began with a simple check. Every Automatic participant was first fit to a single Gaussian distribution (two free parameters) and this fit was compared to that of the two Gaussian mixture model discussed above (five free parameters). For this second two-Gaussian model, the mean of one Gaussian was fixed at zero to represent response maintenance, and the mean of the other Gaussian was free to vary. For both Gaussians, the standard deviation and mixture coefficients were fit as free parameters. Model fit robustly improved. Out of the 52 participants, 52 showed AIC decreases (M = 441.61, SD = 389.89).
 
 As discussed above, Manual participants decreased response maintenance and increased adjustments compared to Automatic participants. We assumed that noisy responses would redistribute response-maintenance symmetrically around zero, resulting in a wider Gaussian with a larger standard deviation. In contrast, new updating events would be more likely to be in line with recent evidence and therefore should be positively biased. New updating events were thus represented by adding a third Gaussian to the two-Gaussian mixture model presented above. In the equation below, the subscript \emph{b} refers to these updates having otherwise been \emph{below} the motor-response threshold for Automatic participants.
 
@@ -249,33 +233,27 @@ As discussed above, Manual participants decreased response maintenance and incre
   P(x) = P_m \cdot \mathcal{N}(0,\,\sigma_{m}^{2}) + P_a \cdot \mathcal{N}(\mu_{a},\,\sigma_{a}^{2}) + P_b \cdot \mathcal{N}(\mu_{b},\,\sigma_{b}^{2})\,
 \end{equation}
 
-The two-Gaussian mixture model used to model Automatic participants was refit to Manual participants but with two instead of five free parameters. This is because the second Gaussian (representing above motor-threshold updating events) was estimated from Automatic participant data and was then fixed for every Manual participant. The fixed second Gaussian was estimated by fitting the two-Gaussian model to the entire Automatic condition, collapsing across all participants. For Manual participants, this left only the standard deviation and mixing coefficient of the first Gaussian (representing response maintenance) free to vary.  Consistent with the noise prediction, the standard deviation of the Gaussian model increased (from an average of \Sexpr{round(mean(get_nls_param("auto2")["stdev1",]),2)} to \Sexpr{round(mean(get_nls_param("man3_man")["stdev1",]),2)}, \textit{t}(\Sexpr{ttest_stdev1[["df"]]}) = \Sexpr{ttest_stdev1[["f"]]}, p = \Sexpr{ttest_stdev1[["p"]]}).
+The two-Gaussian mixture model used to model Automatic participants was refit to Manual participants but with two instead of five free parameters. This is because the second Gaussian (representing above motor-threshold updating events) was estimated from Automatic participant data and was then fixed for every Manual participant. The fixed second Gaussian was estimated by fitting the two-Gaussian model to the entire Automatic condition, collapsing across all participants. For Manual participants, this left only the standard deviation and mixing coefficient of the first Gaussian (representing response maintenance) free to vary.  Consistent with the noise prediction, the standard deviation of the Gaussian model increased (from an average of 0.43 to 2.47, \textit{t}(49.78) = -2.86, p = 0.006).
 
-In contrast to added noise, true updating events should be in line with recent evidence. A third Gaussian was added to model Manual participant adjustments, with three new parameters to fit: a new variable mean, standard deviation, and mixture coefficient. The standard deviation and mixture coefficient of the first Gaussian were allowed to vary again, resulting in a five-parameter model. On aggregate, collapsing across the entire Manual condition to fit the mixture models, model fit improved and resulted in a AIC decrease of \Sexpr{round(AIC(group_nls_fits[["man2_man"]]) - AIC(group_nls_fits[["man3_man"]]),2)}. Individual participants were also fit to this model. Adding this third Gaussian to the mixture model for Manual participants decreased AIC values for \Sexpr{sum(AIC_diff_man23>0)} of the \Sexpr{length(AIC_diff_man23)} Manual participants (M = \Sexpr{round(mean(AIC_diff_man23),2)}, SD = \Sexpr{round(sd(AIC_diff_man23),2)}). 
+In contrast to added noise, true updating events should be in line with recent evidence. A third Gaussian was added to model Manual participant adjustments, with three new parameters to fit: a new variable mean, standard deviation, and mixture coefficient. The standard deviation and mixture coefficient of the first Gaussian were allowed to vary again, resulting in a five-parameter model. On aggregate, collapsing across the entire Manual condition to fit the mixture models, model fit improved and resulted in a AIC decrease of 782.27. Individual participants were also fit to this model. Adding this third Gaussian to the mixture model for Manual participants decreased AIC values for 33 of the 35 Manual participants (M = 291.83, SD = 241.58). 
 
-To determine how specific the improved model fitting was to Manual participants, the same two and three-Gaussian models were also fit to Automatic participants. AIC decreased by \Sexpr{round(AIC(group_nls_fits[["man2_auto"]]) - AIC(group_nls_fits[["man3_auto"]]),2)} for the aggregate models. Per individual cases, out of \Sexpr{length(AIC_diff_auto23)} Automatic participants, \Sexpr{sum(AIC_diff_auto23>0)} decreased AIC (M = \Sexpr{round(mean(AIC_diff_auto23),2)}, SD = \Sexpr{round(sd(AIC_diff_auto23),2)}).
+To determine how specific the improved model fitting was to Manual participants, the same two and three-Gaussian models were also fit to Automatic participants. AIC decreased by 3.22 for the aggregate models. Per individual cases, out of 48 Automatic participants, 16 decreased AIC (M = 107.79, SD = 204.89).
 
 
 
-<<cache=FALSE, out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
-  man3_G1_percent <- round(100*mean(est_G_numadj("man3_man",1))/total_est_numadj("man3_man"),2)
-    man3_G2_percent <- round(100*mean(est_G_numadj("man3_man",2))/total_est_numadj("man3_man"),2)
-    man3_G3_percent <- round(100*mean(est_G_numadj("man3_man",3))/total_est_numadj("man3_man"),2)
-    
-    man3man_mean3 <- get_nls_param("man3_man",individual_nls_fits)["mean3",]
-@
 
-This sequential model fitting procedure should be understood as approximately representing the two substantial ways in which Manual participants made more adjustments; their estimates were noisier and they made more frequent minor adjustments. This should not be mistaken for evidence that Manual participant responses were truly trimodal, nor strategy uniform. Nonetheless, adopting the appropriate skepticism with these imprecise models, they can be used to estimate the proportion of responses attributable to each of three hypothesized sources. On average, Manual participant responses were made up of \Sexpr{ man3_G1_percent} \% (\Sexpr{round(mean(est_G_numadj("man3_man",1)),2)}) response maintenance, \Sexpr{man3_G2_percent} \% (\Sexpr{round(mean(est_G_numadj("man3_man",3)),2)}) new below-motor threshold updating events (average size \Sexpr{round(group_nls_fits[["man3_man"]]$m$getAllPars()['mean3'],2)}\%), and \Sexpr{man3_G3_percent} \% (\Sexpr{round(mean(est_G_numadj("man3_man",2)),2)}) updating events already accounted for by Automatic participant adjustments (average size \Sexpr{round(group_nls_fits[["auto2"]]$m$getAllPars()['mean2'],2)}\%). 
 
-While our three-Gaussian modelling procedure accounts for group-level variance, individual participants vary. The median estimated mean adjustment size (\Sexpr{round(quantile(man3man_mean3)["50%"],2)}) was within the expected range to represent new below-threshold small updating events. However values spanned from \Sexpr{round(range(man3man_mean3)[1],2)} to \Sexpr{round(range(man3man_mean3)[2],2)} (IQR = \Sexpr{round(IQR(man3man_mean3),2)}). We take negative means to indicate that the model underestimated sample-inconsistent values more than it underestimated sample-consistent adjustments (as would be the case with added noise coupled with infrequent updating). Large positive values indicate participants who made more large sample consistent adjustments than the model predicted. Thus, while the group-level model captures well the general differences between the groups, there remained substantial individual differences.
+This sequential model fitting procedure should be understood as approximately representing the two substantial ways in which Manual participants made more adjustments; their estimates were noisier and they made more frequent minor adjustments. This should not be mistaken for evidence that Manual participant responses were truly trimodal, nor strategy uniform. Nonetheless, adopting the appropriate skepticism with these imprecise models, they can be used to estimate the proportion of responses attributable to each of three hypothesized sources. On average, Manual participant responses were made up of 34.49 \% (283.89) response maintenance, 30.74 \% (286.24) new below-motor threshold updating events (average size 1.1\%), and 34.77 \% (253) updating events already accounted for by Automatic participant adjustments (average size 3.94\%). 
+
+While our three-Gaussian modelling procedure accounts for group-level variance, individual participants vary. The median estimated mean adjustment size (0.79) was within the expected range to represent new below-threshold small updating events. However values spanned from -3.9 to 9.46 (IQR = 2.41). We take negative means to indicate that the model underestimated sample-inconsistent values more than it underestimated sample-consistent adjustments (as would be the case with added noise coupled with infrequent updating). Large positive values indicate participants who made more large sample consistent adjustments than the model predicted. Thus, while the group-level model captures well the general differences between the groups, there remained substantial individual differences.
 
 
 \begin{figure}[htp]
 \centering
-<<out.width = '0.8\\textwidth', message=FALSE, results='hide', echo=FALSE, warning = FALSE>>= %out.extra='keepaspectratio',
-    p <- quick_plot(unlist_nls(individual_nls_fits,c("auto1","auto2","man2_man","man3_man")),model_descriptions)
-    p
-@
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=0.8\textwidth]{figure/unnamed-chunk-12-1} 
+\end{knitrout}
 
 \caption{Model fits for number of adjustments over adjustment size. Negative-sign adjustments are sample-inconsistent. Positive-sign adjustments are sample-consistent. Window is restricted to adjustments under 15 percentage points. The red line represents the actual mean number of adjustments made by either condition.  The black line represents the estimated mean number of adjustments generated from averaging over individual model fits. (A.) Automatic participant data modeled using only a single Gaussian. (B.) Automatic participant data modeled using two Gaussians where one had a mean fixed at zero and the other was allowed to vary. These two distributions respectively represent two different types of responses: maintenance and updating events. (C.) Manual participant data modeled by refitting  parameters from model B. This represents how redistribution of responses would occur under the noise hypothesis. Only the standard deviation and scale of the one Gaussian with the mean fixed at zero were allowed to vary. (D.) Manual participant data modeled again by refitting the parameters of model B and adding a third new Gaussian distribution to represent added true new updating events.}
 
@@ -287,45 +265,28 @@ While our three-Gaussian modelling procedure accounts for group-level variance, 
 
 A presumption of many models concerning decision making contain an implicit assumption of group homogeneity. However, previous research has shown that there are great individual differences in the generation of probability estimates \cite{khaw2021}. Consistent with this research, we found wide variation in individual response patterns that are not well explained by group trends.
 
-<<out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
-  t_df <- aggregate_rf(adj_df[adj_df$AdjSize!=0,],'NumAdjs',c('PptId', 'Condition'),'sum')
-  avg_bot_adjs <- round(mean(t_df$NumAdjs[t_df$Condition=="Automatic"]),2)
-  avg_bot_maintenance_percent <- round(((999-avg_bot_adjs)/999)*100,2)
-  avg_man_adjs <- round(mean(t_df$NumAdjs[t_df$Condition=="Manual"]),2)
-  avg_man_adj_percent <- round((avg_man_adjs/999)*100,2)
-@
 
-<<out.width = '0.6\\textwidth', echo=FALSE, warning = FALSE>>=
-  numadj_df <- aggregate_rf(adj_df[adj_df$AdjSize!=0,],"NumAdjs",c("Condition","PptId"),sum)
-  get_max_min <- function(condition){
-    return(c(min(numadj_df$NumAdjs[numadj_df$Condition==condition]),
-           max(numadj_df$NumAdjs[numadj_df$Condition==condition])))
-  }
-  numadj_max_min <- sapply(c("Manual","Automatic"),get_max_min)
-@
+
+
 
 As discussed above, the Manual and Automatic conditions performed distinctively. Manual participants updated more often and were noisier than Automatic participants. 
 
 \begin{figure}[htp]
 \centering
-<<cache=FALSE, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>=
-  knitr::read_chunk(paste0(analysis_path,"2.individual-ppt-analyses.R"))
-@
 
-<<plot-unusual-ppts, cache=FALSE, message=FALSE, results='hide', echo=FALSE, warning = FALSE>>=
-@ 
 
-<<out.width = '0.9\\textwidth', message=FALSE, results='hide', echo=FALSE, warning = FALSE>>=
-   ppts_to_display <- c(c("RMVPPS","UERYCS"),c("VIJCIT","OKJLXP"))
-  #plot
-  plot_ppts(ppts_to_display) + theme(aspect.ratio=1.5/3)
-@
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=0.9\textwidth]{figure/unnamed-chunk-16-1} 
+\end{knitrout}
 \caption{Representative cases (first row) and extreme cases (second row) of response patterns in Block 1 for Automatic and Manual participants. Participants in the first row represent typical cases; they each made the median number of adjustments per their group. Participants in the second row represent atypical and extreme cases of meticulous updating. The dotted line represents the true Bernoulli parameter. The coloured line represents the participant estimate. Where the line is green, the adjustment was sample-consistent; where the line is red it was inconsistent. Where the line is yellow, there was no change from one trial to the next (i.e. response maintenance).}
 \label{fig:representative_ppts}
 \end{figure}
 
 
-However, some Manual condition participants (those required to make a mouse based report on every trial) made \emph{fewer} adjustments than the average Automatic condition participant demonstrating clear cases of spontaneous meticulous stepwise patterning. The rarity of these extreme cases is visible in Figure \ref{fig:gross-diff}, and illustrated by the fact that, of 84 Manual participants in our original sample, 6 participants made fewer adjustments than the average Automatic participant. These cases of the rarest updating in the Manual group (1/5 trials) also reflects substantially higher updating rates than those observed in previous research \cite{gallistel2014, ricci2017,khaw2017}. Complementarily, there were Automatic condition participants with meticulous frequent updating that exceeded the average Manual condition participant (Figure \ref{fig:representative_ppts}). The number adjustments for Automatic participants ranged from  \Sexpr{numadj_max_min[1,"Automatic"]} to \Sexpr{numadj_max_min[2,"Automatic"]}, and for Manual participants ranged from \Sexpr{numadj_max_min[1,"Manual"]} to \Sexpr{numadj_max_min[2,"Manual"]} \footnote{Plots per every individual participant, as in Figure \ref{fig:representative_ppts},  are provided in supplementary material (https://github.com/jschirme/Bernoulli-Estimation/tree/main/Supplementary)}.
+However, some Manual condition participants (those required to make a mouse based report on every trial) made \emph{fewer} adjustments than the average Automatic condition participant demonstrating clear cases of spontaneous meticulous stepwise patterning. The rarity of these extreme cases is visible in Figure \ref{fig:gross-diff}, and illustrated by the fact that, of 84 Manual participants in our original sample, 6 participants made fewer adjustments than the average Automatic participant. These cases of the rarest updating in the Manual group (1/5 trials) also reflects substantially higher updating rates than those observed in previous research \cite{gallistel2014, ricci2017,khaw2017}. Complementarily, there were Automatic condition participants with meticulous frequent updating that exceeded the average Manual condition participant (Figure \ref{fig:representative_ppts}). The number adjustments for Automatic participants ranged from  23 to 993, and for Manual participants ranged from 173 to 996 \footnote{Plots per every individual participant, as in Figure \ref{fig:representative_ppts},  are provided in supplementary material (https://github.com/jschirme/Bernoulli-Estimation/tree/main/Supplementary)}.
 
 
 
