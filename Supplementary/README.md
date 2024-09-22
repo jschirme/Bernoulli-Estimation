@@ -2,7 +2,7 @@
 ## Gaussian Fits
 - In PBR submission, every individual participant is fit to two models: a two Gaussian model and a three Gaussian model
 - Each participant is plotted in this folder
-  - Participants are seperated by group (auto for automatic and man for manual) and are ordered by the size of the mean of the third Gaussian representing estimated mean below-threshold adjustment size
+  - Participants are separated by group (auto for automatic and man for manual) and are ordered by the size of the mean of the third Gaussian representing estimated mean below-threshold adjustment size
   - AIC difference between the two and three Gaussian model is also provided
 
 ## Performance over task

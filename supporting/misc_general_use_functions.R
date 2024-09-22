@@ -48,7 +48,9 @@
     theme(panel.border = element_blank(), panel.grid.major = element_blank(),
            panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"),
            panel.background = element_blank(), plot.margin=unit(c(0,0,0,0),"null"),
-           strip.background = element_rect(fill="white"))
+           strip.background = element_rect(fill="white"),
+           #text=element_text(size=16,  family="TT Arial")
+          )
   }
   
   make_APA <- function(gg_plot, 

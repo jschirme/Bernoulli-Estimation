@@ -48,7 +48,7 @@
 
 \begin{document}
 
-\title[Article Title]{Step-wise updating of probabilities is neither universal nor fully explained by motor costs}
+\title[Article Title]{Stepwise updating of probabilities is neither universal nor fully explained by motor costs}
 
 \author*[1]{\fnm{Julia} \sur{Schirmeister}}\email{jschirme@uwaterloo.ca}
 
@@ -71,24 +71,6 @@
 \maketitle
 
 
-\section{Introduction}\label{sec-intro}
-
-
-The world around us changes with time. If we want to respond appropriately to changing circumstances, our expectations will need to track changes in our environments. To keep our working mental estimates up to date, we will want to incorporate any new evidence into them as it comes in. For example, we track seasonal changes in weather patterns by sampling temperature day to day. 
-
-When probabilities are subject to change, our estimates of the underlying generative processes must adapt. There is an ongoing debate over whether people continuously update their beliefs every time new data is observed, or whether fixed hypotheses are maintained and hypothesis updating is delayed until evidence accumulates that conditions have changed. Representing the former trial-by-trial learning method, the popular delta model \citep{forsgren2023further,nassar2010,nassar2012,brown2009,krugel2009,steyvers2005} achieves flexibility by updating every sample, trial-by-trial, in a way that assigns higher weight to recent observations. Every trial, how unexpected the sample is generates an error term which is used to step towards the next estimate of the probability. \cite{gallistel2014} challenged the delta-model, and all models of the "trial-by-trial", updating variety, proposing instead a change-point detection account. In change-point detection, evidence accumulates before estimates change. Only when the current estimate of probability fails to account for our observations do we revise our internal probability model. 
-
-To support their argument for intermittent updating, \cite{gallistel2014}  adapted a Bernoulli estimation task \citep{robinson1964}. Participants estimated the single unknown parameter of a Bernoulli distribution based on their observations of a series of colored rings (simulating the drawing of colored balls from an urn). The probability of the ring's color on any one trial was stochastic (i.e. determined by the Bernoulli parameter). The Bernoulli parameter itself was subject to stochastic change at random intervals, making this a doubly stochastic process.
-
-The empirical evidence was clear. Participants did not change their Bernoulli parameter estimates trial by trial. Rather, every participant exhibited a stepwise pattern where they held their estimates constant over many trials. Instead of apparently integrating new evidence from the latest sample immediately (as would be predicted by trial-by-trial models), participants held their estimates of probability for long runs. These characteristic long periods of response maintenance have been observed since (\citealp{robinson1964,gallistel2014,ricci2017,khaw2017,carrabin2021}; although see \citealp{forsgren2023further})
-
-One concern with inferring that intermittent changes to participant reports excludes trial-by-trial updating is the way that measurements were made. As observed by \cite{forsgren2023further}, in previous reports the typical procedure is to have participants provide an estimate, which is then visually displayed on the computer screen, that they may change whenever they wish. Their previous response is given as a default response, and a failure to change that response is taken as evidence that there was no change to the participant's estimate of the Bernoulli parameter. But it takes time and effort to adjust the report. For the typical experimental participant it may be easier to just advance to the next trial rather than to use the mouse or the touch screen to tweak a tiny bit their last report. It may only be when the discrepancy between the display and their belief is ``big enough'' that they bother to adjust their report. As a result of this \emph{effort-to-update} confound the observed data may not indicate intermittent updating of our probability estimates, but only intermittent updating \emph{of our reports of} our  probability estimates.
-
-As they identify the motor-cost confound, \cite{forsgren2023further} distinguish between overt and covert updating. Whereas a participant may appear to update infrequently, this overt signal may mask covert updating. The problem is an indirect mapping between mental estimates and behavioral responses. Because of the motor-cost confound, intermittent updating may not mean that the participant themselves intends to signify that their mental estimate has not changed. 
-
-To determine whether this stepwise behavior could be explained by the additional effort it takes to update a response we contrasted an \underline{Automatic} condition that mimicked previous versions of this task to a \underline{Manual} condition that obliged participants to report a new estimate on every trial. This did prompt participants to update more often. However, some participants in the Manual condition still exhibited a step-wise pattern in their probability estimates despite having to update their response on every trial. We conclude that intentional behavior ranges quite broadly and resists easy categorization. Participants can meticulously update either extremely frequently or extremely infrequently. Future models will need to blend both accounts to accommodate both extreme ends of updating frequency \citep{forsgren2023further}. Importantly, motor costs are not sufficient to explain all behavioral observations of intermittent updating.
-
-
 <<cache=FALSE, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>= 
   library(stringr)
   library(ggplot2)
@@ -107,7 +89,28 @@ To determine whether this stepwise behavior could be explained by the additional
 <<cache=TRUE, external-code, echo=FALSE, results='hide', message=FALSE, warning=FALSE, out.width = '0.9\\textwidth',>>=
   setwd(support_path)
   source(analysis_filename)
+  ppts_to_display <- c(c("RMVPPS","UERYCS"),c("VIJCIT","OKJLXP"))
+
 @
+
+
+
+\section{Introduction}\label{sec-intro}
+
+
+The world around us changes with time. If we want to respond appropriately to changing circumstances, our expectations will need to track changes in our environments. To keep our working mental estimates up to date, we will want to incorporate any new evidence into them as it comes in. For example, we track seasonal changes in weather patterns by sampling temperature day to day. 
+
+When probabilities are subject to change, our estimates of the underlying generative processes must adapt. There is an ongoing debate over whether people continuously update their beliefs every time new data is observed, or whether fixed hypotheses are maintained and hypothesis updating is delayed until evidence accumulates that conditions have changed. Representing the former trial-by-trial learning method, the popular delta model \citep{forsgren2023further,nassar2010,nassar2012,brown2009,krugel2009,steyvers2005} achieves flexibility by updating every sample, trial-by-trial, in a way that assigns higher weight to recent observations. Every trial, how unexpected the sample is generates an error term which is used to step towards the next estimate of the probability. \cite{gallistel2014} challenged the delta-model, and all models of the "trial-by-trial", updating variety, proposing instead a change-point detection account. In change-point detection, evidence accumulates before estimates change. Only when the current estimate of probability fails to account for our observations do we revise our internal probability model. 
+
+To support their argument for intermittent updating, \cite{gallistel2014}  adapted a Bernoulli estimation task \citep{robinson1964}. Participants estimated the single unknown parameter of a Bernoulli distribution based on their observations of a series of colored rings (simulating the drawing of colored balls from an urn). The probability of the ring's color on any one trial was stochastic (i.e. determined by the Bernoulli parameter). The Bernoulli parameter itself was subject to stochastic change at random intervals, making this a doubly stochastic process.
+
+The empirical evidence was clear. Participants did not change their Bernoulli parameter estimates trial by trial. Rather, every participant exhibited a stepwise pattern where they held their estimates constant over many trials. Instead of apparently integrating new evidence from the latest sample immediately (as would be predicted by trial-by-trial models), participants held their estimates of probability for long runs. These characteristic long periods of response maintenance have been observed since (\citealp{robinson1964,gallistel2014,ricci2017,khaw2017,carrabin2021}; although see \citealp{forsgren2023further})
+
+One concern with inferring that intermittent changes to participant reports excludes trial-by-trial updating is the way that measurements were made. As observed by \cite{forsgren2023further}, in previous reports the typical procedure is to have participants provide an estimate, which is then visually displayed on the computer screen, that they may change whenever they wish. Their previous response is given as a default response, and a failure to change that response is taken as evidence that there was no change to the participant's estimate of the Bernoulli parameter. But it takes time and effort to adjust the report. For the typical experimental participant it may be easier to just advance to the next trial rather than to use the mouse or the touch screen to tweak a tiny bit their last report. It may only be when the discrepancy between the display and their belief is ``big enough'' that they bother to adjust their report. As a result of this \emph{effort-to-update} confound the observed data may not indicate intermittent updating of our probability estimates, but only intermittent updating \emph{of our reports of} our  probability estimates.
+
+As they identify the motor-cost confound, \cite{forsgren2023further} distinguish between overt and covert updating. Whereas a participant may appear to update infrequently, this overt signal may mask covert updating. The problem is an indirect mapping between mental estimates and behavioral responses. Because of the motor-cost confound, intermittent updating may not mean that the participant themselves intends to signify that their mental estimate has not changed. 
+
+To determine whether this stepwise behavior could be explained by the additional effort it takes to update a response we contrasted an \underline{Automatic} condition that mimicked previous versions of this task to a \underline{Manual} condition that obliged participants to report a new estimate on every trial. This did prompt participants to update more often. However, some participants in the Manual condition still exhibited a stepwise pattern in their probability estimates despite having to update their response on every trial. We conclude that intentional behavior ranges quite broadly and resists easy categorization. Participants can meticulously update either extremely frequently or extremely infrequently. Future models will need to blend both accounts to accommodate both extreme ends of updating frequency \citep{forsgren2023further}. Importantly, motor costs are not sufficient to explain all behavioral observations of intermittent updating.
 
 
 \section{Methods}\label{sec-meth}
@@ -127,7 +130,7 @@ To determine whether this stepwise behavior could be explained by the additional
 
 @
 
-The experiment was conducted online. Its interactive elements were coded in Javascript and PHP using the JsPsych framework \cite{de2015jspsych}. Analyses were conducted in R \cite{rcore2022}. Participants followed a link to a consent form, followed by demographics questions, instructions, practice trials and then they completed the task. The experimental procedure was cleared by the University's Office of Research Ethics (ORE 42844).
+The experiment was conducted online. Its interactive elements were coded in Javascript and PHP using the JsPsych framework \citep{de2015jspsych}. Analyses were conducted in R \citep{rcore2022}. Participants followed a link to a consent form, followed by demographics questions, instructions, practice trials and then they completed the task. The experimental procedure was cleared by the University's Office of Research Ethics (ORE 42844).
 
 Participants were students at the University of Waterloo; they were compensated with research participation credit. \Sexpr{length(unique(full_df$PptId))} participants finished the task. Of these, \Sexpr{num_ppts} (\Sexpr{num_men} men, \Sexpr{num_women} women, \Sexpr{num_other} other) met inclusion criteria (Mean age = \Sexpr{round(mean_age,2)}, SD =  \Sexpr{round(sd_age,2)}). 
 
@@ -153,7 +156,7 @@ The task was a Bernoulli estimation task (Figure \ref{fig:taskdisplay}). For eac
 \begin{figure}[htp] 
     \centering
     \includegraphics[width=0.50\textwidth]{trial-design}
-    \caption{Experimental display}{Task display. Every trial, a red or blue dot floats out of an urn and participants adjust the slider to represent their estimate of the proportion of red to blue dots in the urn.}
+    \caption{Experimental display at the start of a trial. Every trial, a red or blue dot floats out of an urn and participants adjust the slider to represent their estimate of the proportion of red to blue dots in the urn. (A.) Automatic participants are given their last response by default. (B.) Manual participants are given no default response and a line marks their previous estimate.}
     \label{fig:taskdisplay}
 \end{figure}
 
@@ -190,7 +193,7 @@ The dependent variable of interest for these analyses was number of adjustments.
 
 \section{Results}\label{sec-results}
 
-Our results show that both conditions exhibited large heterogeneity in updating frequency. In the Manual condition, the removing of the default response disposed participants to update more frequently, but also introduced noise. Importantly, in a subset of participants, this manipulation did not eliminate step-wise updating completely. Participants can exhibit step-wise response patterns even when they are forced to make a manual report on every trial. On the other hand, participants given a default response may exhibit near-constant updating. This demonstrates substantial individual differences in intentional updating frequency.
+Our results show that both conditions exhibited large heterogeneity in updating frequency. In the Manual condition, the removing of the default response disposed participants to update more frequently, but also introduced noise. Importantly, in a subset of participants, this manipulation did not eliminate stepwise updating completely. Participants can exhibit stepwise response patterns even when they are forced to make a manual report on every trial. On the other hand, participants given a default response may exhibit near-constant updating. This demonstrates substantial individual differences in intentional updating frequency.
 
 <<cache=FALSE, echo=FALSE, results='hide', message=FALSE, warning=FALSE>>=
   knitr::read_chunk(paste0(analysis_path,"1a.group-level-analyses.R"))
@@ -214,10 +217,10 @@ The Manual condition (M = \Sexpr{round(mean(adf$x[adf$Condition=="Manual"]),2)},
 \begin{figure}[htp]
 \centering
 <<out.width = '0.5\\textwidth', echo=FALSE, warning = FALSE>>= %out.extra='keepaspectratio',
-    p <- p + theme(aspect.ratio = 1, legend.position="none",text = element_text(size = 20))
+    p <- p + theme(aspect.ratio = 1, legend.position="none", text=element_text(size=20))
     p
 @
-\caption{Boxplot showing group differences in total number of adjustments. Manual condition participants did make more adjustments, but these were disproportionately evidence consistent suggesting they were not simply due to noise and imprecise estimates.}
+\caption{Boxplot showing group differences in total number of adjustments. Manual condition participants did make more adjustments, but these were disproportionately sample consistent suggesting they were not simply due to noise and imprecise estimates.}
 \label{fig:gross-diff}
 \end{figure}
 
@@ -233,7 +236,7 @@ To determine whether additional adjustments made by the Manual condition were no
 
 The differences detected above establish that the Manual condition distributed their responses more about zero (made noisier estimates) but also made more small adjustments consistent with the evidence (added updating events). This change in updating behavior is explored below by comparing the fit of different mixture models (Figure \ref{fig:numadj}). Automatic participant adjustment distributions were modeled first and then these models were compared to those of the Manual condition. 
 
-Automatic participants were modeled using the equation below. P(x) is the probability of an adjustment of size x. For Automatic participants, this probability was hypothesized to be made up of the sum of two different Gaussian distributions. According to the step-wise pattern identified in previous research, the large majority of responses should be response-maintenance (designated by subscript \emph{m}) and other responses should be above-threshold updating events (subscript \emph{a}). 
+Automatic participants were modeled using the equation below. P(x) is the probability of an adjustment of size x. For Automatic participants, this probability was hypothesized to be made up of the sum of two different Gaussian distributions. According to the stepwise pattern identified in previous research, the large majority of responses should be response-maintenance (designated by subscript \emph{m}) and other responses should be above-threshold updating events (subscript \emph{a}). 
 
 \begin{equation}
   P(x) = P_m \cdot \mathcal{N}(0,\,\sigma_{m}^{2}) + P_a \cdot \mathcal{N}(\mu_{a},\,\sigma_{a}^{2})\,
@@ -285,7 +288,7 @@ While our three-Gaussian modelling procedure accounts for group-level variance, 
 
 \subsection{Updating is individually heterogeneous}
 
-A presumption of many models concerning decision making contain an implicit assumption of group homogeneity. However, previous research has shown that there are great individual differences in the generation of probability estimates \cite{khaw2021}. Consistent with this research, we found wide variation in individual response patterns that are not well explained by group trends.
+A presumption of many models concerning decision making contain an implicit assumption of group homogeneity. However, previous research has shown that there are great individual differences in the generation of probability estimates \citep{khaw2021}. Consistent with this research, we found wide variation in individual response patterns that are not well explained by group trends.
 
 <<out.width = '0.9\\textwidth', echo=FALSE, warning = FALSE>>=
   t_df <- aggregate_rf(adj_df[adj_df$AdjSize!=0,],'NumAdjs',c('PptId', 'Condition'),'sum')
@@ -316,7 +319,6 @@ As discussed above, the Manual and Automatic conditions performed distinctively.
 @ 
 
 <<out.width = '0.9\\textwidth', message=FALSE, results='hide', echo=FALSE, warning = FALSE>>=
-   ppts_to_display <- c(c("RMVPPS","UERYCS"),c("VIJCIT","OKJLXP"))
   #plot
   plot_ppts(ppts_to_display) + theme(aspect.ratio=1.5/3)
 @
@@ -325,7 +327,7 @@ As discussed above, the Manual and Automatic conditions performed distinctively.
 \end{figure}
 
 
-However, some Manual condition participants (those required to make a mouse based report on every trial) made \emph{fewer} adjustments than the average Automatic condition participant demonstrating clear cases of spontaneous meticulous stepwise patterning. The rarity of these extreme cases is visible in Figure \ref{fig:gross-diff}, and illustrated by the fact that, of 84 Manual participants in our original sample, 6 participants made fewer adjustments than the average Automatic participant. These cases of the rarest updating in the Manual group (1/5 trials) also reflects substantially higher updating rates than those observed in previous research \cite{gallistel2014, ricci2017,khaw2017}. Complementarily, there were Automatic condition participants with meticulous frequent updating that exceeded the average Manual condition participant (Figure \ref{fig:representative_ppts}). The number adjustments for Automatic participants ranged from  \Sexpr{numadj_max_min[1,"Automatic"]} to \Sexpr{numadj_max_min[2,"Automatic"]}, and for Manual participants ranged from \Sexpr{numadj_max_min[1,"Manual"]} to \Sexpr{numadj_max_min[2,"Manual"]} \footnote{Plots per every individual participant, as in Figure \ref{fig:representative_ppts},  are provided in supplementary material (https://github.com/jschirme/Bernoulli-Estimation/tree/main/Supplementary)}.
+However, some Manual condition participants (those required to make a mouse based report on every trial) made \emph{fewer} adjustments than the average Automatic condition participant demonstrating clear cases of spontaneous meticulous stepwise patterning. The rarity of these extreme cases is visible in Figure \ref{fig:gross-diff}, and illustrated by the fact that, of 84 Manual participants in our original sample, 6 participants made fewer adjustments than the average Automatic participant. These cases of the rarest updating in the Manual group (1/5 trials) also reflects substantially higher updating rates than those observed in previous research \citep{gallistel2014, ricci2017,khaw2017}. Complementarily, there were Automatic condition participants with meticulous frequent updating that exceeded the average Manual condition participant (Figure \ref{fig:representative_ppts}). The number adjustments for Automatic participants ranged from  \Sexpr{numadj_max_min[1,"Automatic"]} to \Sexpr{numadj_max_min[2,"Automatic"]}, and for Manual participants ranged from \Sexpr{numadj_max_min[1,"Manual"]} to \Sexpr{numadj_max_min[2,"Manual"]} \footnote{Plots per every individual participant, as in Figure \ref{fig:representative_ppts},  are provided in supplementary material (https://github.com/jschirme/Bernoulli-Estimation/tree/main/Supplementary)}.
 
 
 
@@ -333,7 +335,7 @@ However, some Manual condition participants (those required to make a mouse base
 
 There is debate over how people integrate new samples to update estimates of probabilities. In trial-by-trial models, flexibility is achieved by having samples pull probabilities towards them, weighting samples by recency \citep{forsgren2023further,nassar2010,nassar2012,brown2009,krugel2009,steyvers2005}. In change-point detection models, flexibility is achieved by detecting distinct change-points \citep{gallistel2014}.
 
-Major support for change-point detection models comes from step-wise response patterns \citep{gallistel2014, ricci2017}. However, this evidence may be confounded. In this research, when participants are given their last response as a default response it is easier to make no response than a small adjustment. Our experiment was designed to remove this confound. The Manual condition had participants respond every trial with no default provided, thus removing any additional motor cost to updating.
+Major support for change-point detection models comes from stepwise response patterns \citep{gallistel2014, ricci2017}. However, this evidence may be confounded. In this research, when participants are given their last response as a default response it is easier to make no response than a small adjustment. Our experiment was designed to remove this confound. The Manual condition had participants respond every trial with no default provided, thus removing any additional motor cost to updating.
 
 Manual participants did make more adjustments. This appeared to be both due to added noise and added new updating events. Regarding noise, the best-fit response-maintenance Gaussian for Manual participants had a wider standard deviation than did the Gaussian for Automatic participants. This wider variance suggests that attempts to maintain a response became scattered. While this has the unfortunate consequence of making updating intention more difficult to isolate, it is consistent with other research which suggests an element of arbitrary randomness in participant reports of their estimates of probabilities. Even when participants are exposed to the same deterministic sequence of samples, their estimates of the underlying probabilities vary \citep{prat2024}. 
 
